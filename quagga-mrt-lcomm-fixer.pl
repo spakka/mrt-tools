@@ -98,6 +98,8 @@ while (1) {
         decode_mrt_packet(\$packet, $type, $subtype);
 }
 print STDERR "Completed - total number of fixups performed: $fixups_performed\n" if $quiet <= 1;
+close(INPUT);
+close(OUTPUT);
 exit 0;
 
 ##############################################################################
