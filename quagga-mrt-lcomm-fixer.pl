@@ -17,11 +17,14 @@
 # code to be LARGE COMMUNITIES (32), within RIB entries
 #
 # DATA WARNING:
-# this code *cannot* compensate for RIB entries that have no regular COMMUNITIES.
-# only attributes with mis-tagged LARGE COMMUNITIES, in *addition* to regular COMMUNITIES.
-# In that situation, there is only one COMMUNITIES(8) attribute, 
-# and it is not possible to determine whether a fixup is necessary or not.
-# This code only compensates for a second occurrence of the COMMUNITIES(8) attribute.
+#
+# This code *cannot* compensate for RIB entries that have did not have regular COMMUNITIES.
+# This code only fixes attributes with mis-tagged LARGE COMMUNITIES, in *addition* to 
+# regular COMMUNITIES - it looks for a *second* occurrence of the COMMUNITIES(8) attribute,
+# and changes it to LARGE COMMUNITES(32)
+#
+# If there is only one COMMUNITIES(8) attribute, it is not possible to determine 
+# whether a fixup is necessary or not.
 # 
 # USAGE:
 # pipe your uncompressed RIB file to this program on STDIN
